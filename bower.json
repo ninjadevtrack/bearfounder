@@ -1,0 +1,42 @@
+{
+  "name": "bear-founders",
+  "authors": [
+    "Jeremy Hammer <jeremy@bearfounders.com>"
+  ],
+  "description": "Job search for smart people",
+  "main": "",
+  "keywords": [
+    "job",
+    "search",
+    "startup",
+    "education"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.bearfounders.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "nice-select": "https://github.com/hazarin/jquery-nice-select.git#master",
+    "custom-scrollbar": "https://github.com/malihu/malihu-custom-scrollbar-plugin.git#master",
+    "jquery-modern": "jquery#2",
+    "detect_swipe": "https://github.com/marcandre/detect_swipe.git#^2.1.4",
+    "slidebars-fork": "https://github.com/hazarin/Slidebars.git#master",
+    "jquery-old": "jquery#~1.11.3",
+    "bootstrap": "v4.0.0-beta",
+    "MDBootstrap": "^4.4.1",
+    "roboto-fontface": "^0.8.0",
+    "bootstrap-3": "bootstrap#3.3.7",
+    "underscore": "^1.8.3",
+    "waitForImages": "^2.2.0"
+  },
+  "resolutions": {
+    "bootstrap": "v4.0.0-beta",
+    "jquery": "~3.2.1"
+  }
+}

@@ -1,4 +1,53 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+.profile-form ::-webkit-input-placeholder {
+  color:gray;
+  font-size: 0.9em;
+  font-style: italic;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  line-height: 1.2em;
+  word-spacing: 0.3em;
+}
+
+.profile-form ::-moz-placeholder {
+  color:gray;
+  font-size: 0.9em;
+  font-style: italic;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  line-height: 1.2em;
+  word-spacing: 0.3em;
+}
+
+.profile-form :-moz-placeholder {
+  color:gray;
+  font-size: 0.9em;
+  font-style: italic;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  line-height: 1.2em;
+  word-spacing: 0.3em;
+}
+
+.profile-form :-ms-input-placeholder {
+  color:gray;
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  line-height: 1.2em;
+  word-spacing: 0.3em;
+}
+.profile-form :focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+.profile-form :focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+.profile-form :focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+.profile-form :focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+
 /*Bootstrap button outline override*/
 .btn-outline {
     background-color: transparent;
@@ -187,20 +236,33 @@
 .profile-page h3, .profile-page h4, .profile-page h5, .profile-page h6{
   font-family: roboto;
 }
-#headerthumbnail {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+#headerthumbnail.for-mobile {
+  z-index: 3;
+  display: inline-block;
+  height: 100%;
   line-height: inherit;
+  margin-bottom: 6px;
+}
+.profile-thumb {
+  border: 1px solid navy;
+  height: 48px;
+  width: 48px;
+  line-height: inherit;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px 0 0px;
 }
 .img-responsive {
   width: 300px;
   height: 300px;
-  border-radius: 50%;
   background-color: white;
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center center;
+  background-size: contain;
+  overflow: hidden;
 }
 .card {
   overflow: hidden;
@@ -226,7 +288,7 @@
   height: 100px;
   border-bottom: 1px #FFF solid;
   /* This positions the canvas under the text */
-  z-index: 1;
+  /*z-index: 1;*/
   background-color: #25283D;
 }
 .card .avatar {
@@ -234,14 +296,14 @@
   top: calc(100px);
   transform: translateY(-50px);
   left: calc(50% - 50px);
-  z-index: 100;
   background-color: white;
-}
-
-.card .avatar {
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100px;
   height: 100px;
+  overflow: hidden;
   border: 5px solid rgba(0,0,30,0.8);
+  background-size: contain;
 }
 .card .founderavatar {
   background-size: contain !important;
@@ -280,4 +342,60 @@
 	-webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	-moz-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+a.fill-out-later{
+    margin-top: -20px;
+}
+.profile-image {
+  border: 5px solid rgba(0,0,30,0.8);
+}
+.profile-form-container h1.text-red {
+  text-align: center;
+  font-size: 2em;
+  font-family: roboto;
+  color: red;
+  margin-top: 0px;
+}
+.profile-form-container h1, .profile-form-container h2 {
+  color:navy;
+}
+.profile-form-container h1.text-navy {
+  text-align: center;
+  font-size: 2em;
+  font-family: roboto;
+  margin-top: 0px;
+}
+.profile-form-container h2.text-red {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: roboto;
+  color: red;
+  margin-top: 0px;
+}
+.profile-form-container h2.text-navy {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: roboto;
+  margin-top: 0px;
+}
+.error-message {
+  color: red;
+}
+.profile-form-container .img-responsive.inline {
+  float: right;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid navy;
+}
+.controls.inline {
+  display: inline-block;
+  vertical-align: top;
+}
+.profile-form-container .inline-container {
+  overflow: hidden;
+  clear: both;
 }

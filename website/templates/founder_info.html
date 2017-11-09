@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+{{founder.startup_name}}
+{% endblock %}
+
+{% if is_mobile %}
+
+  {% block mobile_content %}
+    <div class="profile-page">
+      <div class="jumbotron">
+        <div class="container">
+          <div id="profile-hero" class="row well">
+            <div class="col-md-4 centerfy">
+              <div class="profile-image text-center img-responsive"
+                {% if founder.logo %}style="background-image: url('{{ founder.logo.url }}');"{% endif %}>
+              </div>
+            </div>
+            <div class="col-md-8 centerfy">
+              <h1>{{ founder.startup_name }}</h1>
+              <h3>{{ founder.get_field_display }}</h3>
+              <p>{{ founder.get_stage_display }} with {{ founder.employee_count }}
+                Employee{{ founder.employee_count|pluralize }}</p>
+              <hr>
+              {% if cd %}
+       				  <h5>Active: Today </h5>
+              {%else%}
+                <h5>Active: {{ last_login|timesince }} ago</h5>
+              {% endif %}
+              <button id="connect" class="btn btn-lg btn-primary btn-outline">Contact</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col col-md-8 col-md-offset-2">
+            <h2>About</h2>
+            <p>{{ founder.description|linebreaks }}</p>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-8 col-md-offset-2">
+            <h2>Job openings</h2>
+            {% for job in jobs %}
+              <div class="row">
+                <div class="col col-sm-12 well">
+                  <h2>{{ job.title }}</h2>
+                  <p>{{ job.get_level_display }}</p>
+                  {% if job.pay %}
+                    <p>{{ job.get_pay_display }}</p>
+                  {% endif %}
+                  {% if job.description %}
+                    <p>{{ job.description|linebreaks }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+            <hr>
+          </div>
+        </div>
+        {% if founder.website != "" %}
+          <div class="row">
+            <div class="col col-md-8 col-md-offset-2">
+              <h2>Website</h2>
+              <a target="_blank" href={{ founder.website }}>{{ founder.website }}</a>
+              <hr>
+            </div>
+          </div>
+        {% endif %}
+        {% if founder.facebook != "" %}
+          <div class="row">
+            <div class="col col-md-8 col-md-offset-2">
+              <h2>Facebook</h2>
+              <a target="_blank" href={{ founder.facebook }}>{{ founder.facebook }}</a>
+              <hr>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endblock %}
+
+{% else %}
+
+  {% block content %}
+    <div class="profile-page">
+      <div class="jumbotron">
+        <div class="container">
+          <div id="profile-hero" class="row well">
+            <div class="col-md-4 centerfy">
+              <div class="profile-image text-center img-responsive"
+                {% if founder.logo %}style="background-image: url('{{ founder.logo.url }}');"{% endif %}>
+              </div>
+            </div>
+            <div class="col-md-8 centerfy">
+              <h1>{{ founder.startup_name }}</h1>
+              <h3>{{ founder.get_field_display }}</h3>
+              <p>{{ founder.get_stage_display }} with {{ founder.employee_count }}
+                Employee{{ founder.employee_count|pluralize }}</p>
+              <hr>
+              {% if cd %}
+       				  <h5>Active: Today </h5>
+              {%else%}
+                <h5>Active: {{ last_login|timesince }} ago</h5>
+              {% endif %}
+              <button id="connect" class="btn btn-lg btn-primary btn-outline">Contact</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col col-md-8 col-md-offset-2">
+            <h2>About</h2>
+            <p>{{ founder.description|linebreaks }}</p>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-8 col-md-offset-2">
+            <h2>Job openings</h2>
+            {% for job in jobs %}
+              <div class="row">
+                <div class="col col-sm-12 well">
+                  <h2>{{ job.title }}</h2>
+                  <p>{{ job.get_level_display }}</p>
+                  {% if job.pay %}
+                    <p>{{ job.get_pay_display }}</p>
+                  {% endif %}
+                  {% if job.description %}
+                    <p>{{ job.description|linebreaks }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+            <hr>
+          </div>
+        </div>
+        {% if founder.website != "" %}
+          <div class="row">
+            <div class="col col-md-8 col-md-offset-2">
+              <h2>Website</h2>
+              <a target="_blank" href={{ founder.website }}>{{ founder.website }}</a>
+              <hr>
+            </div>
+          </div>
+        {% endif %}
+        {% if founder.facebook != "" %}
+          <div class="row">
+            <div class="col col-md-8 col-md-offset-2">
+              <h2>Facebook</h2>
+              <a target="_blank" href={{ founder.facebook }}>{{ founder.facebook }}</a>
+              <hr>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endblock %}
+
+{% endif %}
+
+{% block user_info %}
+  {{ block.super }}
+  <script type="text/javascript">
+    user_page_id = {{ founder.user.id }};
+    name = '{{founder.startup_name|safe}}';
+</script>
+{% endblock user_info %}
